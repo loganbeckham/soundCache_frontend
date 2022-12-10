@@ -1,6 +1,9 @@
 import './App.css';
 import React, {useState} from 'react'
 import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.css'
+
+import SearchResultCards from './components/searchResultCards'
 
 const App = () => {
 
@@ -16,16 +19,25 @@ const App = () => {
         axios.get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`).then((response) => {    
             console.log(response.data.results)
             setSamples(response.data.results)
+            // console.log(samples)
         })
     }
 
     return (
         <>
-            <h1>H1</h1>
+            <h1>soundCache</h1>
             <form>
                 <input type="text" onChange={handleUserInput}/>
             </form>
             <button onClick={getSamples}>search</button>
+            <div className='row'>
+                {samples.map((sample) => {
+                    return (
+                        <SearchResultCards sample={sample}/>
+                    )
+                })
+                }
+            </div>
         </>
     )
 }
