@@ -25,7 +25,8 @@ const App = () => {
 
     return (
         <>
-            <h1>soundCache</h1>
+            <nav className="navbar navrbar-expand-la navbar-light" style={{backgroundColor: '#e3f2fd'}}>
+                <div
             <form>
                 <input type="text" onChange={handleUserInput}/>
             </form>
