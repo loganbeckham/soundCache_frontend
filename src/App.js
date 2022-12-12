@@ -1,7 +1,9 @@
 import './App.css';
 import React, {useState} from 'react'
 import axios from 'axios'
+import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 
 import SearchResultCards from './components/searchResultCards'
 

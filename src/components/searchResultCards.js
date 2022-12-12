@@ -6,8 +6,14 @@ const SearchResultCards = (props) => {
             <div className="col-12 col-md-6 col-lg-6 col-xl-4">
                 <div className="card border-primary my-4" style={{minWidth: '350px'}}>
                     <div className="card-body text-center" style={{height: '175px'}}>
-                        <h5 className="card-title pt-1"> {props.sample.name} </h5>
+                        <h5 className="card-title pt-1" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}> {props.sample.name} </h5>
                         <audio controls src={props.sample.previews["preview-hq-mp3"]}></audio>
+                    </div>
+                    <div className='dropdown'>
+                        <button className='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle="dropdown" aria-expanded="false">Add To Collection</button>
+                        <ul className='dropdown-menu' aria-labelledby="dropdownMenuButton1">
+                            <li><a className='dropdown-item' href='/'>Action</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
