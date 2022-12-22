@@ -31,19 +31,17 @@ const App = () => {
                 <div className="container-fluid">
                     <a className="navbar-brand ms-3" href="/">SoundCache</a>
                     <div className="d-flex">
-                        <a className="me-4" href="/" style={{textDecoration: 'none', color: 'black'}}>Search</a>
-                        <a className="me-4" href="/sessions/new" style={{textDecoration: 'none', color: "black"}}>Log In</a>
+                        <form className='d-flex pt-1'>
+                            <input className='form-control form-control me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
+                            <button className='btn btn-outline-primary' onClick={getSamples}>search</button>
+                        </form>
                     </div>
+
                 </div>
             </nav>
 
             <div className='container'>
-                <div className='d-flex flex-row pt-3 justify-content-center'>
-                    <form className='d-inline-flex' style={{maxWidth: '100vw'}}>
-                        <input className='form-control me-2 my-3' style={{minWidth: '40vw'}} type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
-                    </form>
-                    <button className='btn btn-outline-primary my-3' style={{minWidth: '125px'}} onClick={getSamples}>search</button>
-                </div>
+                
                 <div className='row'>
                     {samples.map((sample) => {
                         return (
