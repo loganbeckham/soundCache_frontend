@@ -1,9 +1,8 @@
 import './App.css';
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min'
 
 import SearchResultCards from './components/searchResultCards'
 
@@ -11,6 +10,7 @@ const App = () => {
 
     const [userInput, setUserInput] = useState('')
     const [samples, setSamples] = useState([])
+    const [collections, setCollections] = useState([])
 
     const handleUserInput = (event) => {
         event.preventDefault();
@@ -18,12 +18,20 @@ const App = () => {
     }
 
     const getSamples = () => {
-        axios.get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`).then((response) => {    
-            console.log(response.data.results)
-            setSamples(response.data.results)
-            // console.log(samples)
-        })
+        axios
+            .get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`)
+            .then((response) => {
+                setSamples(response.data.results)
+            })
     }
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:3000/collections/')
+            .then((response) => {
+                setCollections(response.data)
+            })
+    })
 
     return (
         <>
@@ -33,8 +41,8 @@ const App = () => {
                     <div className="d-flex">
                         <form className='d-flex pt-1'>
                             <input className='form-control form-control me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
-                            <button className='btn btn-outline-primary' onClick={getSamples}>search</button>
                         </form>
+                        <button className='btn btn-outline-primary mt-1' type='submit' onClick={getSamples}>search</button>
                     </div>
 
                 </div>
@@ -45,7 +53,7 @@ const App = () => {
                 <div className='row'>
                     {samples.map((sample) => {
                         return (
-                            <SearchResultCards sample={sample}/>
+                            <SearchResultCards sample={sample} collection={collections} setCollections={setCollections}/>
                         )
                     })
                     }
