@@ -1,8 +1,19 @@
 import React from 'react'
 import axios from 'axios'
+import AudioPlayer from 'react-modern-audio-player'
+
+
 
 
 const SearchResultCards = (props) => {
+
+    const playList = [
+        {
+            name: props.sample.name,
+            src: props.sample.previews["preview-hq-mp3"],
+            id: props.sample,
+        }
+    ]
 
     const addToCollection = (result) => {
         axios.put(
@@ -23,7 +34,39 @@ const SearchResultCards = (props) => {
 
     return (
         <>
-            <div className="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div className='audio-box'>
+                <div className='player-container'>
+                    <AudioPlayer
+                        playList={playList}
+                        audioInitialState={{
+                        muted: true,
+                        volume: 0.2,
+                        curPlayId: props.sample,
+                        }}
+                        placement={{
+                        interface: {
+                            templateArea: {
+                                trackTimeDuration: "row1-5",
+                                progress: "row1-4",
+                                playButton: "row1-6",
+                                repeatType: "row1-7",
+                                volume: "row1-8",
+                            },
+                        },
+                        player: "static",
+                        }}
+                        activeUI={{
+                        all: true,
+                        progress: "waveform",
+                        playList: false,
+                        }}
+                        rootContainerProps={{
+                            colorScheme: "dark",
+                        }}
+                    />
+                </div>
+            </div>
+            {/* <div className="col-12 col-md-6 col-lg-6 col-xl-4">
                 <div className="card border-primary my-4" style={{minWidth: '350px'}}>
                     <div className="card-body text-center" style={{height: '175px'}}>
                         <h5 className="card-title pt-1" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}> {props.sample.name} </h5>
@@ -47,7 +90,7 @@ const SearchResultCards = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
