@@ -22,6 +22,7 @@ const App = () => {
             .get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`)
             .then((response) => {
                 setSamples(response.data.results)
+                console.log(response.data.results)
             })
     }
 
@@ -35,20 +36,23 @@ const App = () => {
 
     return (
         <>
-            <nav className="navbar navrbar-expand-la navbar-light" style={{backgroundColor: 'white'}}>
-                <div className="container-fluid">
-                    <a className="navbar-brand ms-3" href="/">SoundCache</a>
+            <nav className="navbar">
+                <div className="container-fluid justify-content-between">
+                    <a className="navbar-brand ms-3 mt-2" href="/">SoundCache</a>
                     <div className="d-flex">
-                        <form className='d-flex pt-1'>
-                            <input className='form-control form-control me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
+                        <form className='d-flex form mt-2'>
+                            <input className='input me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
                         </form>
-                        <button className='btn btn-outline-primary mt-1' type='submit' onClick={getSamples}>search</button>
+                        <button className='btn' type='submit' onClick={getSamples}>
+                            <img style={{width: '2em', opacity: '.65'}} src='searchicon.png'></img>
+                        </button>
+                    </div>
+                    <div>
+                        <p>hi asdfasdfas</p>
                     </div>
 
                 </div>
             </nav>
-
-            <div className='container'>
                 
                 <div className='row'>
                     {samples.map((sample) => {
@@ -58,7 +62,7 @@ const App = () => {
                     })
                     }
                 </div>
-            </div>
+
         </>
     )
 }
