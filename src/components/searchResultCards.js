@@ -1,19 +1,12 @@
-import React from 'react'
+import {useEffect, useRef} from 'react'
 import axios from 'axios'
-import AudioPlayer from 'react-modern-audio-player'
+import Waveform from './waveform'
 
 
 
 
 const SearchResultCards = (props) => {
-
-    const playList = [
-        {
-            name: props.sample.name,
-            src: props.sample.previews["preview-hq-mp3"],
-            id: props.sample,
-        }
-    ]
+    
 
     const addToCollection = (result) => {
         axios.put(
@@ -36,12 +29,17 @@ const SearchResultCards = (props) => {
         <>
             <div className='audio-box'>
                 <div className='player-container'>
-                    <AudioPlayer
-                        playList={playList}
+                    <Waveform audio={props.sample.previews["preview-hq-mp3"]}/>
+                    {/* <AudioPlayer
+                        playList={[{
+                            name: props.sample.name,
+                            src: props.sample.previews["preview-hq-mp3"],
+                            id: props.sample.name,
+                        }]}
                         audioInitialState={{
-                        muted: true,
+                        muted: false,
                         volume: 0.2,
-                        curPlayId: props.sample,
+                        curPlayId: props.sample.name,
                         }}
                         placement={{
                         interface: {
@@ -57,13 +55,14 @@ const SearchResultCards = (props) => {
                         }}
                         activeUI={{
                         all: true,
-                        progress: "waveform",
+                        progress: "bar",
                         playList: false,
                         }}
                         rootContainerProps={{
                             colorScheme: "dark",
                         }}
-                    />
+                    
+                    /> */}
                 </div>
             </div>
             {/* <div className="col-12 col-md-6 col-lg-6 col-xl-4">
