@@ -17,12 +17,12 @@ const App = () => {
         setUserInput(event.target.value)
     }
 
-    const getSamples = () => {
+    const getSamples = (event) => {
+        event.preventDefault()
         axios
             .get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`)
             .then((response) => {
                 setSamples(response.data.results)
-                console.log(response.data.results)
             })
     }
 
@@ -34,18 +34,24 @@ const App = () => {
             })
     })
 
+    const testButton = () => {
+        console.log(samples[0])
+    }
+
     return (
         <>
             <nav className="navbar">
                 <div className="container-fluid justify-content-between">
                     <a className="navbar-brand ms-3 mt-2" href="/">SoundCache</a>
                     <div className="d-flex">
-                        <form className='d-flex form mt-2'>
+                        <form className='d-flex form mt-2' onSubmit={getSamples}>
                             <input className='input me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
-                        </form>
-                        <button className='btn' type='submit' onClick={getSamples}>
-                            <img style={{width: '2em', opacity: '.65'}} src='searchicon.png'></img>
+                            <button className='btn' type='submit'>
+                                <img style={{width: '2em', opacity: '.65'}} src='searchicon.png'></img>
                         </button>
+                        </form>
+                        
+                        
                     </div>
                     <div>
                         <p>hi asdfasdfas</p>
@@ -53,11 +59,14 @@ const App = () => {
 
                 </div>
             </nav>
+            <button onClick={testButton}>
+                test
+            </button>
                 
                 <div className='row'>
                     {samples.map((sample) => {
                         return (
-                            <SearchResultCards sample={sample} collection={collections} setCollections={setCollections}/>
+                            <SearchResultCards sample={sample} collection={collections}/>
                         )
                     })
                     }

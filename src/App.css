@@ -17,7 +17,33 @@ a {
     color: white !important;
 }
 
-.navbar {
+.audioCard {
+    max-width: 600;
+    min-width: 240;
+    margin: auto;
+    transition: 0.3s;
+    box-shadow: 0 8px 40px -12px rgba(0,0,0,0.3);
+}
+
+.audioCard :hover {
+    box-shadow: 0 16px 70px -12.125px rgba(0,0,0,0.3);
+}
+
+.audioList {
+    padding: 0
+}
+
+.audioListItem {
+    padding-bottom: 0
+}
+
+.audioControls {
+    min-width: 100px
+}
+
+.audioIcon {
+    height: 18;
+    width: 18;
 }
 
 .form {
