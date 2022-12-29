@@ -34,13 +34,9 @@ const App = () => {
             })
     })
 
-    const testButton = () => {
-        console.log(samples[0])
-    }
-
     return (
         <>
-            <nav className="navbar">
+            <nav className="navbar fixed-top">
                 <div className="container-fluid justify-content-between">
                     <a className="navbar-brand ms-3 mt-2" href="/">SoundCache</a>
                     <div className="d-flex">
@@ -48,22 +44,17 @@ const App = () => {
                             <input className='input me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
                             <button className='btn' type='submit'>
                                 <img style={{width: '2em', opacity: '.65'}} src='searchicon.png'></img>
-                        </button>
+                            </button>
                         </form>
-                        
-                        
                     </div>
-                    <div>
-                        <p>hi asdfasdfas</p>
+                    <div >
+                        <p className='sign-in'>Sign In</p>
                     </div>
 
                 </div>
             </nav>
-            <button onClick={testButton}>
-                test
-            </button>
-                
-                <div className='row'>
+            <div className='resultBox'>
+                <div className='row' style={{width: '95vw'}}>
                     {samples.map((sample) => {
                         return (
                             <SearchResultCards sample={sample} collection={collections}/>
@@ -71,6 +62,7 @@ const App = () => {
                     })
                     }
                 </div>
+            </div>
 
         </>
     )
