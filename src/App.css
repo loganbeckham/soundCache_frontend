@@ -1,0 +1,150 @@
+.App {
+    text-align: center;
+}
+
+::placeholder {
+    color: white;
+    opacity: .5;
+}
+
+html {
+    background: rgb(20, 17, 28);
+}
+
+body {
+    background: linear-gradient(171deg, rgb(20, 17, 28) 0%, rgb(20, 17, 28) 100%);
+    background-attachment: fixed;
+}
+
+
+a, p {
+    color: white !important;
+
+}
+
+/* ///////////////////// */
+/* ////// NAVBAR /////// */
+/* ///////////////////// */
+
+.navbar {
+    background-color: rgb(20, 17, 28) !important;
+    padding-bottom: 2vh !important;
+    padding-top: 2vh !important;
+}
+
+.brand {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vh;
+}
+
+.brand-logo {
+    margin-left: 1vw;
+    margin-right: .1vw;
+    margin-top: .5vh;
+}
+
+.form {
+    border-radius: 30px !important;
+    border:1px solid rgba(255, 255, 255, .5);
+    background-clip:padding-box;
+}
+
+.input {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    transition: none !important;
+    display:block;
+    width:100%;
+    padding:.375rem .75rem;
+    font-size:1rem;
+    font-weight:400;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.sign-in {
+    padding-top: 2vh;
+    padding-right: 1vw;
+    
+}
+
+/* ////////////////////// */
+/* /////// LOGIN //////// */
+/* ////////////////////// */
+
+.login {
+    margin-top: 40vw;
+}
+
+/* /////////////////////// */
+/* /////// SIGNUP //////// */
+/* /////////////////////// */
+
+.signup {
+    margin-top: 40vw;
+}
+
+/* ///////////////////// */
+/* // SEARCH RESULTS /// */
+/* ///////////////////// */
+
+.resultBox {
+    background: transparent;
+    margin-top: 7vh;
+    margin-bottom: 4vh;
+    padding-bottom: 5vh;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: rgba(88, 83, 102, 0.523) !important;
+    border-radius: 30px !important;
+    color: rgb(208, 208, 208);
+}
+
+.card-title {
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 1vh;
+    color: rgba(255, 255, 255, 0.656) !important;
+}
+
+.play-button {
+    background: transparent;
+}
+
+.wavebox {
+    /* background-color: rgba(16, 16, 16, 0.492); */
+    border: .1px rgba(0, 0, 0, 0) solid;
+    border-radius: 30px;
+    padding-left: 1vw;
+    padding-right: 2vw;
+}
+
+.card-bottom-row {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.download-btn {
+    margin-top: 1.5vh;
+    margin-left: 1vw;
+}
+
+.add-to-collection {
+    color: rgba(255, 255, 255, 0.656) !important;
+    padding-top: 1.5vh !important;
+}
+
+
+
+
