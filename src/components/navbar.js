@@ -1,8 +1,17 @@
 import { BsFileEarmarkMusic } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { useLogout } from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
 const Navbar = (props) => {
+
+    const { logout } = useLogout()
+    const { user } = useAuthContext()
+
+    const handleClick = () => {
+        logout()
+    }
 
     return(
             <nav className="navbar fixed-top">
@@ -23,11 +32,19 @@ const Navbar = (props) => {
                             </button>
                         </form>
                     </div>
-                    <div >
-                        <Link to ='/login'>Login</Link>
-                        <Link to ='/signup'>Signup</Link>
-                    </div>
-
+                    {user ? 
+                    (
+                        <div>
+                            <span>{user.email}</span>
+                            <button onClick={handleClick}>Log Out</button>
+                        </div>
+                    ):
+                    (
+                        <div>
+                            <Link to ='/login'>Login</Link>
+                            <Link to ='/signup'>Signup</Link>
+                        </div>
+                    )}
                 </div>
             </nav>
     )

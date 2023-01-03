@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext';
 import axios from 'axios'
 
 import './App.css';
@@ -19,6 +20,7 @@ const App = () => {
     const [userInput, setUserInput] = useState('')
     const [samples, setSamples] = useState([])
     const [collections, setCollections] = useState([])
+    const { user } = useAuthContext()
 
     const handleUserInput = (event) => {
         event.preventDefault();
@@ -53,11 +55,11 @@ const App = () => {
                     />
                     <Route
                         path='/login'
-                        element={<Login/>}
+                        element={!user ? <Login/> : <Navigate to='/'/>}
                     />
                     <Route
                         path='/signup'
-                        element={<Signup/>}
+                        element={!user ? <Signup/> : <Navigate to='/' />}
                     />
                 </Routes>
             </BrowserRouter>
