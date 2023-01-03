@@ -72,6 +72,10 @@ a, p {
     
 }
 
+.drop-link {
+    color: black !important;
+}
+
 /* ////////////////////// */
 /* /////// LOGIN //////// */
 /* ////////////////////// */
@@ -94,6 +98,7 @@ a, p {
 
 .resultBox {
     background: transparent;
+    min-height: 100vh;
     margin-top: 7vh;
     margin-bottom: 4vh;
     padding-bottom: 5vh;
@@ -102,6 +107,7 @@ a, p {
     border-radius: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .card {

@@ -34,9 +34,16 @@ const Navbar = (props) => {
                     </div>
                     {user ? 
                     (
-                        <div>
-                            <span>{user.email}</span>
-                            <button onClick={handleClick}>Log Out</button>
+                        // <div>
+                        //     <span>{user.email}</span>
+                        //     <button onClick={handleClick}>Log Out</button>
+                        // </div>
+                        <div className='dropdown'>
+                            <button className='btn dropdown-toggle add-to-collection' type='button' id='dropdownMenuButton1' data-bs-toggle="dropdown" aria-expanded="false">{user.email}</button>
+                            <ul className='dropdown-menu' aria-labelledby="dropdownMenuButton1">
+                                <Link className='dropdown-item drop-link' to='/mycollections'>My Collections</Link>
+                                <button className='dropdown-item' onClick={handleClick}>Log Out</button>
+                            </ul>
                         </div>
                     ):
                     (

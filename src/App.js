@@ -12,6 +12,7 @@ import Home from './pages/Home'
 import Navbar from './components/navbar'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Collections from './pages/myCollections'
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
     const [userInput, setUserInput] = useState('')
     const [samples, setSamples] = useState([])
     const [collections, setCollections] = useState([])
+
     const { user } = useAuthContext()
 
     const handleUserInput = (event) => {
@@ -36,14 +38,6 @@ const App = () => {
             })
     }
 
-    useEffect(() => {
-        axios
-            .get('http://localhost:3000/collections/')
-            .then((response) => {
-                setCollections(response.data)
-            })
-    })
-
     return (
         <div className='App'>
             <BrowserRouter>
@@ -51,7 +45,7 @@ const App = () => {
                 <Routes>
                     <Route
                         path='/'
-                        element={<Home samples={samples} collections={collections}/>}
+                        element={<Home setCollections={setCollections} samples={samples} collections={collections}/>}
                     />
                     <Route
                         path='/login'
@@ -60,6 +54,10 @@ const App = () => {
                     <Route
                         path='/signup'
                         element={!user ? <Signup/> : <Navigate to='/' />}
+                    />
+                    <Route
+                        path='/mycollections'
+                        element={user ? <Collections setCollections={setCollections}/> : <Navigate to='/signup' />}
                     />
                 </Routes>
             </BrowserRouter>

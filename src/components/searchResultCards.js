@@ -2,15 +2,22 @@ import {useEffect, useRef} from 'react'
 import axios from 'axios'
 import Waveform from './waveform'
 import { HiDownload } from 'react-icons/hi'
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const SearchResultCards = (props) => {
+    const { user } = useAuthContext()
     
     const addToCollection = (result) => {
         axios.put(
-            'http://localhost:3000/collections/addTo/' + result,
+            'https://soundcache-backend.herokuapp.com/collections/addTo/' + result,
             {
                 name: props.sample.name,
                 preview: props.sample.previews["preview-hq-mp3"]
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
             }
         ).then(() => {
             console.log('done')
