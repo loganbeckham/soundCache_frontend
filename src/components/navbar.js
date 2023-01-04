@@ -1,32 +1,55 @@
 import { BsFileEarmarkMusic } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { Link, redirect, useNavigate} from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useState } from 'react';
+import axios from 'axios'
+import React from 'react'
+
 
 
 const Navbar = (props) => {
 
     const { logout } = useLogout()
     const { user } = useAuthContext()
+    const navigate = useNavigate()
+
+    const [userInput, setUserInput] = useState('')
 
     const handleClick = () => {
         logout()
     }
 
+    const handleUserInput = (event) => {
+        event.preventDefault();
+        setUserInput(event.target.value)
+    }
+
+    const getSamples = (event) => {
+        event.preventDefault()
+        axios
+            .get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`)
+            .then((response) => {
+                props.setSamples(response.data.results)
+                window.scrollTo(0, 0)
+                navigate('/')
+            })
+    }
+
     return(
             <nav className="navbar fixed-top">
-                <div className="container-fluid justify-content-between">
-                    <div className='brand'>
+                <div className="container-fluid">
+                    <div className='brand-box'>
                         <Link to='/'>
-                            <BsFileEarmarkMusic className='brand-logo' color='white' size='2em'/>
+                            <BsFileEarmarkMusic className='brand-logo' size='2em'/>
                         </Link>
-                        <Link to='/' className="navbar-brand ms-1">
-                            <h4>SoundCache</h4>
+                        <Link to='/' className="navbar-brand ms-2">
+                            <h4 className='brand-name'>SoundCache</h4>
                         </Link>
                     </div>
-                    <div className="d-flex">
-                        <form className='d-flex form' onSubmit={props.getSamples}>
-                            <input className='input me-2' type="text" placeholder='Search Free Samples' onChange={props.handleUserInput}/>
+                    <div className="d-flex nav-search">
+                        <form className='d-flex form search-form' onSubmit={getSamples}>
+                            <input className='input me-2' type="text" placeholder='Search Free Samples' onChange={handleUserInput}/>
                             <button className='btn' type='submit'>
                                 <img style={{width: '2em', opacity: '.65'}} src='searchicon.png'></img>
                             </button>
@@ -38,18 +61,20 @@ const Navbar = (props) => {
                         //     <span>{user.email}</span>
                         //     <button onClick={handleClick}>Log Out</button>
                         // </div>
-                        <div className='dropdown'>
-                            <button className='btn dropdown-toggle add-to-collection' type='button' id='dropdownMenuButton1' data-bs-toggle="dropdown" aria-expanded="false">{user.email}</button>
-                            <ul className='dropdown-menu' aria-labelledby="dropdownMenuButton1">
-                                <Link className='dropdown-item drop-link' to='/mycollections'>My Collections</Link>
-                                <button className='dropdown-item' onClick={handleClick}>Log Out</button>
-                            </ul>
+                        <div className='login-signup'>
+                            <div className='dropdown'>
+                                <button className='btn dropdown-toggle nav-drop' type='button' id='dropdownMenuButton1' data-bs-toggle="dropdown" aria-expanded="false">{user.email}</button>
+                                <ul className='dropdown-menu dropdown-menu-end' aria-labelledby="dropdownMenuButton1">
+                                    <Link className='dropdown-item drop-link' to='/mycollections'>My Collections</Link>
+                                    <button className='dropdown-item' onClick={handleClick}>Log Out</button>
+                                </ul>
+                            </div>
                         </div>
                     ):
                     (
-                        <div>
-                            <Link to ='/login'>Login</Link>
-                            <Link to ='/signup'>Signup</Link>
+                        <div className='login-signup'>
+                            <Link to ='/login' className='px-3 nav-link'>Login</Link>
+                            <Link to ='/signup' className='px-3 nav-link'>Signup</Link>
                         </div>
                     )}
                 </div>

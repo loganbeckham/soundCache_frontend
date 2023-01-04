@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext';
-import axios from 'axios'
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -18,30 +17,17 @@ import Collections from './pages/myCollections'
 
 const App = () => {
 
-    const [userInput, setUserInput] = useState('')
     const [samples, setSamples] = useState([])
     const [collections, setCollections] = useState([])
 
     const { user } = useAuthContext()
 
-    const handleUserInput = (event) => {
-        event.preventDefault();
-        setUserInput(event.target.value)
-    }
 
-    const getSamples = (event) => {
-        event.preventDefault()
-        axios
-            .get(`https://freesound.org/apiv2/search/text/?query=${userInput}&fields=name,previews&token=ZDVZ805OUqVQk3TWEQ36CU9jC1eldzKvwPzYzAtZ`)
-            .then((response) => {
-                setSamples(response.data.results)
-            })
-    }
 
     return (
         <div className='App'>
             <BrowserRouter>
-                <Navbar getSamples={getSamples} setSampeles={setSamples} handleUserInput={handleUserInput}/>
+                <Navbar setSamples={setSamples}/>
                 <Routes>
                     <Route
                         path='/'

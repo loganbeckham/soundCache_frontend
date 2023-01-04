@@ -28,20 +28,30 @@ a, p {
 
 .navbar {
     background-color: rgb(20, 17, 28) !important;
-    padding-bottom: 2vh !important;
-    padding-top: 2vh !important;
+    padding-bottom: 1em !important;
+    padding-top: 1em !important;
 }
 
-.brand {
+.brand-box {
     display: flex;
     flex-direction: row;
-    margin-top: 1vh;
+    flex: 1;
+    order: 1;
 }
 
 .brand-logo {
     margin-left: 1vw;
     margin-right: .1vw;
-    margin-top: .5vh;
+    margin-top: .5em;
+    size: 2em;
+}
+
+.navbar-brand {
+    margin-top: .3em;
+}
+
+.nav-search {
+    order: 2;
 }
 
 .form {
@@ -66,10 +76,24 @@ a, p {
     outline: none;
 }
 
+.login-signup {
+    display: flex;
+    flex: 1;
+    order: 3;
+    justify-content:flex-end;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
 .sign-in {
     padding-top: 2vh;
     padding-right: 1vw;
-    
+}
+
+.nav-drop {
+    color: rgba(255, 255, 255, 0.656) !important;
 }
 
 .drop-link {
@@ -92,6 +116,8 @@ a, p {
     margin-top: 40vw;
 }
 
+
+
 /* ///////////////////// */
 /* // SEARCH RESULTS /// */
 /* ///////////////////// */
@@ -99,8 +125,8 @@ a, p {
 .resultBox {
     background: transparent;
     min-height: 100vh;
-    margin-top: 7vh;
     margin-bottom: 4vh;
+    padding-top: 5vh;
     padding-bottom: 5vh;
     margin-right: 2vw;
     margin-left: 2vw;
@@ -150,6 +176,26 @@ a, p {
     color: rgba(255, 255, 255, 0.656) !important;
     padding-top: 1.5vh !important;
 }
+
+@media all and (max-width: 770px) {
+
+    .nav-search {
+        order: 3;
+        padding-top: 3vh;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .login-signup {
+        order: 2;
+    }
+
+    .resultBox {
+        padding-top: 15vh;
+    }
+
+  }
 
 
 
