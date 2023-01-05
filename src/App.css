@@ -30,6 +30,7 @@ a, p {
     background-color: rgb(20, 17, 28) !important;
     padding-bottom: 1em !important;
     padding-top: 1em !important;
+    height: 90px;
 }
 
 .brand-box {
@@ -44,10 +45,15 @@ a, p {
     margin-right: .1vw;
     margin-top: .5em;
     size: 2em;
+    color: rgb(214, 212, 212);
 }
 
 .navbar-brand {
     margin-top: .3em;
+}
+
+.brand-name {
+    color: rgb(214, 212, 212);
 }
 
 .nav-search {
@@ -85,6 +91,7 @@ a, p {
 
 .nav-link {
     font-size: 1.1em !important;
+    color: rgb(214, 212, 212) !important;
 }
 
 .sign-in {
@@ -101,19 +108,110 @@ a, p {
 }
 
 /* ////////////////////// */
+/* //////// HOME //////// */
+/* ////////////////////// */
+
+.home-boiler {
+    color: rgb(214, 212, 212);
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#asterisk {
+    color: rgba(214, 212, 212, 0.753);
+    margin-bottom: 2em;
+}
+
+/* ////////////////////// */
 /* /////// LOGIN //////// */
 /* ////////////////////// */
+
+.loginBox {
+    background: transparent;
+    min-height: 100vh;
+    margin-bottom: 4vh;
+    padding-bottom: 5vh;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .login {
     margin-top: 40vw;
 }
 
+.login-form {
+   color: rgb(214, 212, 212);
+   text-align: left;
+}
+
+.login-form button{
+    color: rgb(214, 212, 212) !important;
+    margin-top: 1em;
+ }
+
+#login-asterisk {
+    color: rgb(214, 212, 212);
+    font-size: .75em;
+    align-self: center;
+    margin-bottom: 3em;
+}
+
+
+
 /* /////////////////////// */
 /* /////// SIGNUP //////// */
 /* /////////////////////// */
 
-.signup {
-    margin-top: 40vw;
+.signupBox {
+    background: transparent;
+    margin-top: 25vh;
+    margin-bottom: 4vh;
+    padding-bottom: 150px;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.signupBox h3 {
+    color: rgb(214, 212, 212);
+    padding-bottom: 1em;
+}
+
+#signup-asterisk {
+    color: rgb(214, 212, 212);
+    font-size: .75em;
+    align-self: center;
+    margin-bottom: 0em;
+}
+
+.signup-top {
+    width: 20em;
+    padding-bottom: 5em;
+    padding-right: 4em;
+    text-align: right
+}
+
+.signup-bottom {
+    max-width: 500px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    color: rgb(214, 212, 212);
+    flex-wrap: wrap;
 }
 
 
@@ -126,7 +224,7 @@ a, p {
     background: transparent;
     min-height: 100vh;
     margin-bottom: 4vh;
-    padding-top: 5vh;
+    padding-top: 9vh;
     padding-bottom: 5vh;
     margin-right: 2vw;
     margin-left: 2vw;
@@ -140,6 +238,8 @@ a, p {
     background-color: rgba(88, 83, 102, 0.523) !important;
     border-radius: 30px !important;
     color: rgb(208, 208, 208);
+    width: 90%;
+    align-self: center !important;
 }
 
 .card-title {
@@ -172,12 +272,36 @@ a, p {
     margin-left: 1vw;
 }
 
+#card-asterisk {
+    margin-right: .2em;
+    margin-bottom: .6em;
+}
+
 .add-to-collection {
     color: rgba(255, 255, 255, 0.656) !important;
     padding-top: 1.5vh !important;
 }
 
 @media all and (max-width: 770px) {
+
+    .navbar {
+        height:150px;
+    }
+
+    .signupBox {
+        margin-top: 190px;
+        width: 70vw;
+    }
+
+    #signup-asterisk {
+        height: 10vh;
+    }
+
+    .signup-top {
+        padding-left: 0em;
+        padding-right: 0em;
+        text-align: center;
+    }
 
     .nav-search {
         order: 3;

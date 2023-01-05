@@ -4,6 +4,7 @@ import axios from 'axios'
 import Waveform from './waveform'
 import { HiDownload } from 'react-icons/hi'
 import { useAuthContext } from "../hooks/useAuthContext"
+import { BsAsterisk } from 'react-icons/bs'
 
 const SearchResultCards = (props) => {
     const { user } = useAuthContext()
@@ -38,8 +39,8 @@ const SearchResultCards = (props) => {
     return (
         <>
             
-            <div className="col-12 col-md-6 col-lg-6 col-xl-4">
-                <div className="card mt-5 mx-3" style={{minWidth: '350px'}}>
+            <div className="col-12 col-md-6 col-lg-6 col-xl-4 d-flex justify-content-center">
+                <div className="card mt-5" style={{minWidth: '350px'}}>
                     <div className="card-body text-center" >
                         <h5 className="card-title pt-1" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}> {props.sample.name} </h5>
                         <div className='wavebox'>
@@ -67,7 +68,7 @@ const SearchResultCards = (props) => {
                                 </div>
                             :
                                 <div>
-                                    <button onClick={loginToCollect} className='btn add-to-collection'>Login to Collect</button>
+                                    <button onClick={loginToCollect} className='btn add-to-collection'><BsAsterisk id='card-asterisk' size={'.7em'}/>Login to Collect</button>
                                 </div>
                             }
                         </div>

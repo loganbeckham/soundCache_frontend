@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useLogin } from '../hooks/useLogin'
+import { BsAsterisk } from 'react-icons/bs'
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -14,25 +15,32 @@ const Login = () => {
 
     return (
         <>
-            <div className="resultBox">
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <h3>Log In</h3>
-                    <label> Email: </label>
-                    <input
-                        type='email'
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                    />
-                    <label> Password: </label>
-                    <input
-                        type='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                    />
-
-                    <button disabled={isLoading}>Login</button>
-                    {error && <div className="error">{error}</div>}
-                </form>
+            <div className="loginBox">
+                <BsAsterisk id="login-asterisk" size={'3em'}/>
+                <div>
+                    <form className="login-form" onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label className="form-label"> Email: </label>
+                            <input
+                                className="form-control"
+                                type='email'
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label"> Password: </label>
+                            <input
+                                className="form-control"
+                                type='password'
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                            />
+                        </div>
+                        {error && <div className="error">{error}</div>}
+                        <button className="btn btn-outline-light" disabled={isLoading}>Login</button>
+                    </form>
+                </div>
             </div>
         </>
     )
