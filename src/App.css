@@ -22,6 +22,10 @@ a, p {
 
 }
 
+.bumper {
+    height: 90px;
+}
+
 /* ///////////////////// */
 /* ////// NAVBAR /////// */
 /* ///////////////////// */
@@ -103,8 +107,20 @@ a, p {
     color: rgba(255, 255, 255, 0.656) !important;
 }
 
-.drop-link {
+.dropdown-menu {
+    border-radius: 20px !important;
+}
+
+.dropdown-menu :focus {
+    background-color: transparent !important;
+    
+}
+
+.dropdown-item {
     color: black !important;
+    border-radius: 20px !important;
+    text-align: right !important;
+    
 }
 
 /* ////////////////////// */
@@ -128,7 +144,7 @@ a, p {
 
 .loginBox {
     background: transparent;
-    min-height: 100vh;
+    margin-top: 15vh;
     margin-bottom: 4vh;
     padding-bottom: 5vh;
     margin-right: 2vw;
@@ -140,17 +156,12 @@ a, p {
     align-items: center;
 }
 
-.login {
-    margin-top: 40vw;
-}
-
 .login-form {
    color: rgb(214, 212, 212);
    text-align: left;
 }
 
 .login-form button{
-    color: rgb(214, 212, 212) !important;
     margin-top: 1em;
  }
 
@@ -161,6 +172,10 @@ a, p {
     margin-bottom: 3em;
 }
 
+/* .btn-outline-light {
+    color: black !important;
+} */
+
 
 
 /* /////////////////////// */
@@ -169,7 +184,7 @@ a, p {
 
 .signupBox {
     background: transparent;
-    margin-top: 25vh;
+    margin-top: 15vh;
     margin-bottom: 4vh;
     padding-bottom: 150px;
     margin-right: 2vw;
@@ -222,9 +237,8 @@ a, p {
 
 .resultBox {
     background: transparent;
-    min-height: 100vh;
+    min-height: 80vh;
     margin-bottom: 4vh;
-    padding-top: 9vh;
     padding-bottom: 5vh;
     margin-right: 2vw;
     margin-left: 2vw;
@@ -267,20 +281,103 @@ a, p {
     justify-content: space-between;
 }
 
-.download-btn {
-    margin-top: 1.5vh;
-    margin-left: 1vw;
+#download-box {
+    margin-left: .6em;
+    margin-top: .4em;
 }
 
-#card-asterisk {
-    margin-right: .2em;
-    margin-bottom: .6em;
+#download-btn {
+    transform: scale(1.4);
+    color: rgba(255, 255, 255, 0.656);
+    background-color: none !important;
+}
+
+#download-link :hover {
+    background-color: none !important;
+}
+
+.download-btn-bg {
+    height: 75%;
+
+}
+
+.download-btn-bg :hover  {
+    background-color: rgba(181, 186, 185, 0) !important;
+    border-radius: 50px;
+    transition: 1s;
+}
+
+
+#login-to-collect-box {
+    margin-top: .4em;
+    margin-right: 1em;
+}
+
+#login-to-collect {
+    transform: scale(1.5);
+    color: rgba(255, 255, 255, 0.656);
 }
 
 .add-to-collection {
     color: rgba(255, 255, 255, 0.656) !important;
-    padding-top: 1.5vh !important;
+    transform: scale(1.5);
 }
+
+.add-to-collection-bg :hover  {
+    /* background-color: rgba(181, 186, 185, 0.279) !important; */
+    border-radius: 50px;
+    transition: 1s;
+}
+
+#add-to-collection-box {
+    margin-top: .5em;
+    margin-right: 1em;
+}
+
+/* ///////////////////// */
+/* // NEW COLLECTION /// */
+/* ///////////////////// */
+
+.new-collection-box {
+    background: transparent;
+    margin-bottom: 4vh;
+    margin-top: 7.5em;
+    padding-bottom: 5vh;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(214, 212, 212);
+}
+
+.new-collection-box h1 {
+    margin-bottom: 1em;
+}
+
+.new-collection-form {
+   color: rgb(214, 212, 212);
+   text-align: left;
+   width: 30vw;
+}
+
+.new-collection-form button{
+    margin-top: 1em;
+ }
+
+ .new-collection-form .error{
+    margin-top: 1em;
+ }
+
+#collection-asterisk {
+    color: rgb(214, 212, 212);
+    font-size: .75em;
+    align-self: center;
+    margin-bottom: 3em;
+}
+
 
 @media all and (max-width: 770px) {
 
@@ -288,8 +385,12 @@ a, p {
         height:150px;
     }
 
+    .bumper{
+        height: 150px;
+    }
+
     .signupBox {
-        margin-top: 190px;
+        margin-top: 50px;
         width: 70vw;
     }
 
@@ -313,10 +414,6 @@ a, p {
 
     .login-signup {
         order: 2;
-    }
-
-    .resultBox {
-        padding-top: 15vh;
     }
 
   }

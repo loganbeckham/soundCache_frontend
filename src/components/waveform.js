@@ -41,7 +41,7 @@ const Waveform = ({ audio }) => {
                     toggleIsPlaying(waveSurferRef.current.isPlaying())
                     }} type="button"
                 >
-                    {isPlaying ? <FaPauseCircle size='1.5em' /> : <FaPlayCircle size='`1.5em'/>}
+                    {isPlaying ? <FaPauseCircle color='rgba(255, 255, 255, 0.656)' size='1.5em' /> : <FaPlayCircle color='rgba(255, 255, 255, 0.656)' size='`1.5em'/>}
                 </button>
                 <div ref={containerRef} />
             </WaveSurferWrap>

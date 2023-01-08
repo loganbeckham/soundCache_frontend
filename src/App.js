@@ -3,9 +3,12 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext';
 
 
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
+
+
 
 
 import Home from './pages/Home'
@@ -13,6 +16,7 @@ import Navbar from './components/navbar'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Collections from './pages/myCollections'
+import { CoPresent, PropaneSharp } from '@mui/icons-material';
 
 
 
@@ -44,7 +48,7 @@ const App = () => {
                     />
                     <Route
                         path='/mycollections'
-                        element={user ? <Collections setCollections={setCollections}/> : <Navigate to='/signup' />}
+                        element={user ? <Collections setCollections={setCollections} collections={collections}/> : <Navigate to='/signup' />}
                     />
                 </Routes>
             </BrowserRouter>

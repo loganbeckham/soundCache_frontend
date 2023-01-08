@@ -15,6 +15,8 @@ const Login = () => {
 
     return (
         <>
+            <div className="bumper">
+            </div>
             <div className="loginBox">
                 <BsAsterisk id="login-asterisk" size={'3em'}/>
                 <div>
@@ -38,7 +40,9 @@ const Login = () => {
                             />
                         </div>
                         {error && <div className="error">{error}</div>}
-                        <button className="btn btn-outline-light" disabled={isLoading}>Login</button>
+                        <div>
+                            <button className="btn btn-outline-light" disabled={isLoading}>Login</button>
+                        </div>
                     </form>
                 </div>
             </div>

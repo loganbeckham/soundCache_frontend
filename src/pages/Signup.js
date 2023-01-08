@@ -15,6 +15,8 @@ const Signup = () => {
 
     return (
         <>
+        <div className="bumper">
+        </div>
         <div className="d-flex justify-content-center">
             <div className="signupBox">
                 <div className="w-100 h-25">
