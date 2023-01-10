@@ -32,11 +32,17 @@ const SearchResultCards = (props) => {
             }
         ).then(() => {
             console.log('done')
-            // axios   
-            //     .get('http://localhost:3000/collections/')
-            //     .then((response) => {
-            //         console.log(result)
-            //     })
+            axios   
+                .get('https://soundcache-backend.herokuapp.com/collections',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                })
+                .then((response) => {
+                    // console.log(response.data)
+                    props.setCollections(response.data)
+                })
         })
     }
 

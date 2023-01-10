@@ -16,6 +16,7 @@ import Navbar from './components/navbar'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Collections from './pages/myCollections'
+import CollectionShowPage from './pages/collectionShowPage';
 import { CoPresent, PropaneSharp } from '@mui/icons-material';
 
 
@@ -24,6 +25,7 @@ const App = () => {
 
     const [samples, setSamples] = useState([])
     const [collections, setCollections] = useState([])
+    const [showCollection, setShowCollection] = useState("")
 
     const { user } = useAuthContext()
 
@@ -48,7 +50,11 @@ const App = () => {
                     />
                     <Route
                         path='/mycollections'
-                        element={user ? <Collections setCollections={setCollections} collections={collections}/> : <Navigate to='/signup' />}
+                        element={user ? <Collections setShowCollection={setShowCollection} setCollections={setCollections} collections={collections}/> : <Navigate to='/signup' />}
+                    />
+                    <Route
+                        path='/showcollection'
+                        element={user ? <CollectionShowPage setShowCollection={setShowCollection} showCollection={showCollection} setCollections={setCollections} collections={collections}/> : <Navigate to='/signup' />}
                     />
                 </Routes>
             </BrowserRouter>

@@ -24,6 +24,7 @@ const App = (props) => {
                 })
                 .then((response) => {
                     console.log(user.token)
+                    console.log(response.data)
                     props.setCollections(response.data)
                 })
         }
@@ -39,7 +40,7 @@ const App = (props) => {
                         <div className='row' style={{width: '95vw'}}>
                             {props.samples.map((sample) => {
                                 return (
-                                    <SearchResultCards sample={sample} collection={props.collections} setShowNewCollectionForm={setShowNewCollectionForm} setStoredSample={setStoredSample}/>
+                                    <SearchResultCards sample={sample} collection={props.collections} setCollections={props.setCollections} setShowNewCollectionForm={setShowNewCollectionForm} setStoredSample={setStoredSample}/>
                                 )
                             })
                             }
